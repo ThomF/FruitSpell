@@ -8,10 +8,12 @@ export class Player {
         this.id = generateId()
         this.name = data.name
         this.score = 0;
+
+        
     }
 
     get ListTemplate(){
-        return `<div class="row">
+        return `<div class="row" onclick="app.playersController.activePlayer('${this.id}')">
         <p>${this.name}</p>
         <p>SCORE:${this.score}</p>
         </div>`
