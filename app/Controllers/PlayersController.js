@@ -1,11 +1,11 @@
 import { appState } from "../AppState.js"
 // @ts-ignore
-import{ setHTML, setText} from"../Utils/Writer.js"
+import { setHTML, setText } from "../Utils/Writer.js"
 import { playersService } from "../Services/PlayersService.js"
 import { getFormData } from "../Utils/FormHandler.js"
 import { Pop } from "../Utils/Pop.js"
 
-function _drawPlayers(){
+function _drawPlayers() {
     let template = ''
     appState.players.forEach(p => template += p.ListTemplate)
     // @ts-ignore
@@ -13,16 +13,16 @@ function _drawPlayers(){
 }
 
 // @ts-ignore
-function _drawPlayer(){
+function _drawPlayer() {
     console.log("will this work")
     // @ts-ignore
     setText('activePlayer', `${appState.player.name} ${appState.player.score}`)
 }
 
 
-export class PlayersController{
+export class PlayersController {
 
-    constructor(){
+    constructor() {
         this.show()
         appState.on('players', _drawPlayers)
         appState.on('player', _drawPlayer)
@@ -30,13 +30,13 @@ export class PlayersController{
     }
 
 
-    show(){
+    show() {
         _drawPlayers()
     }
 
 
 
-    handleFormSubmit(){
+    handleFormSubmit() {
         try {
             // @ts-ignore
             event.preventDefault()
@@ -48,10 +48,10 @@ export class PlayersController{
             console.log(formData)
 
         } catch (error) {
-            
+
         }
     }
-    handleFruitSubmit(answer){
+    handleFruitSubmit(answer) {
         try {
             // @ts-ignore
             event.preventDefault()
@@ -63,22 +63,23 @@ export class PlayersController{
             console.log(formData)
 
         } catch (error) {
-            
+
         }
     }
-    randomFruit(){
-        playersService.randomFruit()
+    randomFruit() {
+        return playersService.randomFruit()
+
     }
 
-    activePlayer(pId){
+    activePlayer(pId) {
         try {
             console.log('controller active')
             playersService.setActivePlayer(pId)
         } catch (error) {
             Pop.error(error)
-            
+
         }
-        
+
     }
 
 
