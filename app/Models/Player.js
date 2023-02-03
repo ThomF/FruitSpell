@@ -7,7 +7,7 @@ export class Player {
     constructor(data) {
         this.id = generateId()
         this.name = data.name
-        this.score = 0;
+        this.score = data.score || 0;
 
 
     }
