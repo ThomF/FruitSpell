@@ -32,7 +32,7 @@
   }
 </style>
 
-<body class="debug">
+<body class="">
   <header>
     <nav class="navbar navbar-dark navbar-expand bg-dark text-light no-select">
       <a class="navbar-brand ms-3" href="#">
@@ -53,16 +53,20 @@
       <!-- STUB FORM -->
       <div class="row">
         <div class="col-6">
-          <h1>
-            fruits
-          </h1>
           <div class="row">
             <div class="col-12">
-              <div class="card">
-                <div class="card-body" id="ranFruit">
-                  <form onsubmit="app.PlayersController.handleFruitSubmit()">
-                  </form>
+              <div class="card-body">
+                <div class="row" id="ranFruit">
+
                 </div>
+                <form onsubmit="app.playersController.handleFruitSubmit()">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="fruit" required>
+                    <label for="fruit">SPELL IT!</label>
+                  </div>
+                </form>
+              </div>
+              <div>
               </div>
             </div>
           </div>
@@ -84,25 +88,28 @@
               </form>
             </div>
           </div>
-
         </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <span id="activePlayer"></span>
 
-            </div>
-          </div>
-        </div>
+
+
       </div>
       <div class="row">
         <div class="col-12">
-          <!-- <div class="row">
+          <div class="card">
+            <span id="activePlayer"></span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <!-- <div class="row">
             <p>NAME</p>
             <p>SCORE:</p>
           </div> -->
-        </div>
       </div>
+    </div>
     </div>
   </main>
   <footer class="bg-dark text-light">

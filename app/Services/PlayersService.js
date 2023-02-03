@@ -1,7 +1,7 @@
 import { appState } from "../AppState.js";
 import { Player } from "../Models/Player.js";
 import { saveState } from "../Utils/Store.js";
-import { setHTML, setText } from "../Utils/Writer.js"
+import { setText } from "../Utils/Writer.js"
 
 
 
@@ -35,6 +35,20 @@ class PlayersService {
         appState.players.push(player)
         appState.emit('players')
         saveState('players', appState.players)
+    }
+
+    addPoint(formData) {
+        console.log(formData);
+        if (appState.activeFruit == formData.fruit) {
+            appState.player.score++
+            appState.activeFruit = null
+            playersService.randomFruit()
+            appState.emit('activeFruit')
+            console.log(appState.player.score, 'this is the active players score');
+            saveState('players', appState.players)
+
+
+        } else console.log('I suck at this');
     }
 }
 

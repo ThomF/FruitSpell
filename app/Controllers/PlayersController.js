@@ -14,7 +14,7 @@ function _drawPlayers() {
 
 // @ts-ignore
 function _drawPlayer() {
-    console.log("will this work")
+    // console.log("will this work")
     // @ts-ignore
     setText('activePlayer', `${appState.player.name} ${appState.player.score}`)
 }
@@ -26,6 +26,7 @@ export class PlayersController {
         this.show()
         appState.on('players', _drawPlayers)
         appState.on('player', _drawPlayer)
+        appState.on('activeFruit', _drawPlayer)
 
     }
 
@@ -43,44 +44,49 @@ export class PlayersController {
             // @ts-ignore
             const form = event.target
             const formData = getFormData(form)
-
             playersService.createPlayer(formData)
-            console.log(formData)
 
         } catch (error) {
 
         }
     }
-    handleFruitSubmit(answer) {
+    handleFruitSubmit() {
         try {
             // @ts-ignore
             event.preventDefault()
             // @ts-ignore
             const form = event.target
             const formData = getFormData(form)
-
-            playersService.createPlayer(formData)
-            console.log(formData)
+            playersService.addPoint(formData)
+            form.reset()
 
         } catch (error) {
 
         }
     }
     randomFruit() {
-        return playersService.randomFruit()
+        playersService.randomFruit()
 
     }
 
+
     activePlayer(pId) {
         try {
-            console.log('controller active')
+            // console.log('controller active')
             playersService.setActivePlayer(pId)
+            this.randomFruit()
         } catch (error) {
             Pop.error(error)
 
         }
 
     }
+
+    // TODO add points function
+
+
+
+
 
 
 }
