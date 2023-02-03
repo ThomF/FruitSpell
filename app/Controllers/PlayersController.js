@@ -16,7 +16,7 @@ function _drawPlayers() {
 function _drawPlayer() {
     // console.log("will this work")
     // @ts-ignore
-    setText('activePlayer', `${appState.player.name} ${appState.player.score}`)
+    setHTML('activePlayer', `Good luck player: <b>${appState.player.name}</b> Your score is: <b>${appState.player.score}</b>`)
 }
 
 

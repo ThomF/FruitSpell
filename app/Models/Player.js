@@ -4,17 +4,17 @@ import { generateId } from "../Utils/generateId.js";
 
 export class Player {
 
-    constructor(data){
+    constructor(data) {
         this.id = generateId()
         this.name = data.name
         this.score = 0;
 
-        
+
     }
 
-    get ListTemplate(){
+    get ListTemplate() {
         return `<div class="row" onclick="app.playersController.activePlayer('${this.id}')">
-        <p>${this.name}</p>
+        <h1><b>${this.name}</b></h1>
         <p>SCORE:${this.score}</p>
         </div>`
     }

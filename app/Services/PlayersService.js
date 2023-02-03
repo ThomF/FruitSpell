@@ -43,12 +43,12 @@ class PlayersService {
             appState.player.score++
             appState.activeFruit = null
             playersService.randomFruit()
-            appState.emit('activeFruit')
-            console.log(appState.player.score, 'this is the active players score');
             saveState('players', appState.players)
+            appState.emit('activeFruit')
+            appState.emit('players')
 
 
-        } else console.log('I suck at this');
+        } else console.log('you are a bad speller');
     }
 }
 
